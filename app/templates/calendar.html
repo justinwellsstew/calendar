@@ -1,13 +1,12 @@
 
 
 <select>
-<option ng-repeat = "year in years" value="{{year}}"> {{year}} </option>
+<option ng-repeat = "year in years" value="{{year}}" ng-model="selectedYear"> {{year}} </option>
 </select>
 
 <select>
-<option ng-repeat = "month in months" value="{{month}}"> {{month}} </option>
+<option ng-repeat = "month in months" value="{{month}}" ng-model="selectedMonth"> {{month}} </option>
 </select>
 <table id="calendar">
-
-	
+		{{displayMonth}}
 </table>
