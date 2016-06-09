@@ -1,1 +1,7 @@
 /* your css code goes here */
+
+td {
+	width: 60px;
+	height: 60px;
+	border: 1px solid black;
+}
