@@ -24,34 +24,10 @@ angular.module('calendarDemoApp', [])
 
             // var selectedDate =  new Date($scope.selectedMonth $scope.selectedYear)
             var date = new Date();
-            var month = date.getMonth();
-            console.log(month);
+            $scope.monthNumber = date.getMonth();
             var range = CalendarRange.getMonthlyRange(new Date());
-            var monthRange = range.days;
-            console.log(range);
 
-
-
-            var displayMonth = "";
-
-            angular.forEach(monthRange, function(value, key) {
-
-                if (key == 0) {
-                    displayMonth += '<tr>'
-                } else if (key % 7 == 0 && key != 0 && key != monthRange.length) {
-                    displayMonth += '</tr><tr>';
-                }
-                displayMonth = displayMonth + '<td>' + $scope.weekdays[key % 7] + ' ' + value.day + '</td>';
-                if (key == monthRange.length) {
-                    displayMonth += "</tr>";
-                }
-            });
-
-            // angular.element(document).find('#calendar').html(displayMonth);
-
-            $scope.displayMonth = displayMonth;
-
-
+            $scope.month = range.days;        
 
         }
 

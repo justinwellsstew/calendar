@@ -1,7 +1,18 @@
 /* your css code goes here */
 
-td {
-	width: 60px;
+.container {
+	margin: auto;
+	width: 80%;
+}
+
+.dayOfMonth{
+	display:inline-block;
+	width: 12%;
 	height: 60px;
+	padding: 10px;
 	border: 1px solid black;
+}
+
+.outsideOFMonth {
+	background-color: #eeeeee;
 }
