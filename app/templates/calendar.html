@@ -1,9 +1,12 @@
 
-<select ng-options="year for year in years" ng-model="selectedYear"></select>
-<select ng-options="month for month in months" ng-model="selectedMonth"></select>
-<br>
+
 <div class="container">
-	<div ng-repeat="(key, day) in month" class="dayOfMonth" ng-class="{outsideOFMonth : day.month != monthNumber}">
+<div class="selectMenu">
+Year: <select ng-options="year for year in years" ng-model="selectedYear" ng-change="change()"></select>
+Month: <select ng-options="month.number as month.month for month in months" ng-model="selectedMonth" ng-change="change()"></select>
+</div>
+<br>
+	<div ng-repeat="(key, day) in daysOfMonth" class="dayOfMonth" ng-class="{outsideOFMonth : day.month != selectedMonth}">
 	{{day.day}}
 	{{weekdays[key % 7]}}
 	</div>

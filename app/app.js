@@ -9,27 +9,86 @@ angular.module('calendarDemoApp', [])
 
         controller: function($scope, $element, $attrs, $sce) {
 
+            // create todays date
+            var date = new Date();
 
-            // create years
-            $scope.years = [1995, 1996, 1997, 1998, 1999, 2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019]
+            //get year number to create years dropdown menu
+            var yearNumber = date.getFullYear();
 
-            //create months
-            $scope.months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+            //get default value for year
+            $scope.selectedYear = yearNumber;
+
+            //get default value for month
+            $scope.selectedMonth = date.getMonth();
+
+            //get default month (this month)
+            var range = CalendarRange.getMonthlyRange(new Date($scope.selectedYear, $scope.selectedMonth, 1));
+            $scope.daysOfMonth = range.days;
+
+            // create range of years
+            var years = [];
+            for (var i = yearNumber - 10; i <= yearNumber + 10; i++) {
+                years.push(i);
+
+            }
+
+            // add years to scope
+            $scope.years = years;
+
+            //create months for array
+            $scope.months = [{
+                month: 'Jan',
+                number: 0
+            }, {
+                month: 'Feb',
+                number: 1
+            }, {
+                month: 'March',
+                number: 2
+            }, {
+                month: 'Apr',
+                number: 3
+            }, {
+                month: 'May',
+                number: 4
+            }, {
+                month: 'June',
+                number: 5
+            }, {
+                month: 'July',
+                number: 6
+            }, {
+                month: 'Aug',
+                number: 7
+            }, {
+                month: 'Sept',
+                number: 8
+            }, {
+                month: 'Oct',
+                number: 9
+            }, {
+                month: 'Nov',
+                number: 10
+            }, {
+                month: 'Dec',
+                number: 11
+            }, ];
 
             //create days of the week
             $scope.weekdays = ["Sun", "Mon", "Tues", "Wed", "Thurs", "Fri", "Sat"];
 
-
-
-
             // var selectedDate =  new Date($scope.selectedMonth $scope.selectedYear)
             var date = new Date();
             $scope.monthNumber = date.getMonth();
-            var range = CalendarRange.getMonthlyRange(new Date());
+            $scope.yearNumber = date.getYear();
 
-            $scope.month = range.days;        
 
+            $scope.change = function() {
+
+                var range = CalendarRange.getMonthlyRange(new Date($scope.selectedYear, $scope.selectedMonth, 1));
+                $scope.daysOfMonth = range.days;
+
+            }
         }
-
     }
 });

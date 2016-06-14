@@ -5,6 +5,11 @@
 	width: 80%;
 }
 
+.selectMenu {
+	background-color: #eeeeee;
+	padding: 10px;
+}
+
 .dayOfMonth{
 	display:inline-block;
 	width: 12%;
